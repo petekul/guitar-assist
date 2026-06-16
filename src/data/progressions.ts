@@ -43,6 +43,24 @@ export const MAJOR_PROGRESSIONS: Progression[] = [
     degrees:  [0,   3,   0,   4],
     qualities: ['major', 'major', 'major', 'major'],
   },
+  {
+    name: 'Sensitive Female',
+    numerals: ['vi', 'IV', 'I', 'V'],
+    degrees:  [5,    3,   0,   4],
+    qualities: ['minor', 'major', 'major', 'major'],
+  },
+  {
+    name: 'Royal Road',
+    numerals: ['IV', 'V', 'iii', 'vi'],
+    degrees:  [3,    4,   2,     5],
+    qualities: ['major', 'major', 'minor', 'minor'],
+  },
+  {
+    name: 'Jazz Turnaround',
+    numerals: ['vi', 'ii', 'V', 'I'],
+    degrees:  [5,    1,    4,   0],
+    qualities: ['minor', 'minor', 'major', 'major'],
+  },
 ]
 
 // Natural minor scale harmonisation: i ii° III iv v VI VII
@@ -76,6 +94,24 @@ export const MINOR_PROGRESSIONS: Progression[] = [
     numerals: ['i', 'VII', 'VI', 'v'],
     degrees:  [0,   6,     5,   4],
     qualities: ['minor', 'major', 'major', 'minor'],
+  },
+  {
+    name: 'Andalusian Cadence',
+    numerals: ['i', 'VII', 'VI', 'V'],
+    degrees:  [0,   6,     5,   4],
+    qualities: ['minor', 'major', 'major', 'major'],
+  },
+  {
+    name: 'Anthemic',
+    numerals: ['i', 'VI', 'VII'],
+    degrees:  [0,   5,    6],
+    qualities: ['minor', 'major', 'major'],
+  },
+  {
+    name: 'Minor Jazz ii–V–i',
+    numerals: ['ii', 'V', 'i'],
+    degrees:  [1,    4,   0],
+    qualities: ['dim', 'major', 'minor'],
   },
 ]
 
