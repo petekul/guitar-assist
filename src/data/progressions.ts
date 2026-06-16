@@ -38,7 +38,7 @@ export const MAJOR_PROGRESSIONS: Progression[] = [
     qualities: ['major', 'major', 'minor', 'minor', 'major'],
   },
   {
-    name: 'Classic Rock',
+    name: 'Major Vamp',
     numerals: ['I', 'IV', 'I', 'V'],
     degrees:  [0,   3,   0,   4],
     qualities: ['major', 'major', 'major', 'major'],
@@ -56,7 +56,7 @@ export const MAJOR_PROGRESSIONS: Progression[] = [
     qualities: ['major', 'major', 'minor', 'minor'],
   },
   {
-    name: 'Jazz Turnaround',
+    name: 'Relative Minor Turnaround',
     numerals: ['vi', 'ii', 'V', 'I'],
     degrees:  [5,    1,    4,   0],
     qualities: ['minor', 'minor', 'major', 'major'],
@@ -66,19 +66,19 @@ export const MAJOR_PROGRESSIONS: Progression[] = [
 // Natural minor scale harmonisation: i ii° III iv v VI VII
 export const MINOR_PROGRESSIONS: Progression[] = [
   {
-    name: 'Minor Pop',
+    name: 'Minor Vamp',
     numerals: ['i', 'VI', 'III', 'VII'],
     degrees:  [0,   5,    2,     6],
     qualities: ['minor', 'major', 'major', 'major'],
   },
   {
-    name: 'Minor Rock',
+    name: 'Minor Loop',
     numerals: ['i', 'VII', 'VI', 'VII'],
     degrees:  [0,   6,     5,   6],
     qualities: ['minor', 'major', 'major', 'major'],
   },
   {
-    name: 'Natural Minor',
+    name: 'Subdominant Loop',
     numerals: ['i', 'iv', 'VII', 'III'],
     degrees:  [0,   3,    6,     2],
     qualities: ['minor', 'minor', 'major', 'major'],
@@ -96,18 +96,20 @@ export const MINOR_PROGRESSIONS: Progression[] = [
     qualities: ['minor', 'major', 'major', 'minor'],
   },
   {
+    // V is major here, borrowed from harmonic minor (not the natural minor v used elsewhere in this file)
     name: 'Andalusian Cadence',
     numerals: ['i', 'VII', 'VI', 'V'],
     degrees:  [0,   6,     5,   4],
     qualities: ['minor', 'major', 'major', 'major'],
   },
   {
-    name: 'Anthemic',
+    name: 'Three-Chord Minor',
     numerals: ['i', 'VI', 'VII'],
     degrees:  [0,   5,    6],
     qualities: ['minor', 'major', 'major'],
   },
   {
+    // V is major (dominant) here, also borrowed from harmonic minor
     name: 'Minor Jazz ii–V–i',
     numerals: ['ii', 'V', 'i'],
     degrees:  [1,    4,   0],
