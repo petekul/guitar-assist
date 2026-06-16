@@ -13,11 +13,11 @@ function ProgressionCard({ progression, scaleNotes }: { progression: Progression
   )
 
   return (
-    <div className="bg-gray-800 rounded-xl px-5 py-4 min-w-0">
-      <p className="text-xs font-semibold text-gray-400 mb-3">{progression.name}</p>
-      <div className="flex gap-4">
+    <div className="bg-gray-800 rounded-xl px-3 py-3 min-w-0">
+      <p className="text-xs font-semibold text-gray-400 mb-2">{progression.name}</p>
+      <div className="flex gap-2">
         {progression.numerals.map((numeral, i) => (
-          <div key={i} className="flex flex-col items-center min-w-[2.5rem]">
+          <div key={i} className="flex flex-col items-center min-w-[2rem]">
             <span className="text-xs text-gray-500 mb-0.5">{numeral.toUpperCase()}</span>
             <span className="text-sm font-bold text-white">{chordNames[i]}</span>
           </div>
@@ -62,7 +62,7 @@ export default function ProgressionBrowser({ note }: { note: string }) {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-3">
+      <div className="grid grid-cols-2 gap-2">
         {progressions.map(prog => (
           <ProgressionCard key={prog.name} progression={prog} scaleNotes={scaleNotes} />
         ))}
