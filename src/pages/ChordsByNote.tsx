@@ -13,6 +13,7 @@ import { SortableContext, useSortable, rectSortingStrategy } from '@dnd-kit/sort
 import { CSS } from '@dnd-kit/utilities'
 import ChordDiagram from '../components/ChordDiagram'
 import ScaleCard from '../components/ScaleCard'
+import ProgressionBrowser from '../components/ProgressionBrowser'
 import {
   NOTE_KEYS,
   getChordsForNote,
@@ -306,6 +307,8 @@ export default function ChordsByNote() {
         </div>
 
         <ScaleCard note={upper} />
+
+        <ProgressionBrowser note={upper} />
 
         <SelectedSection draggingLibItem={activeDrag?.type === 'library-chord'} />
 
