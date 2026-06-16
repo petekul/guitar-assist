@@ -33,4 +33,4 @@ export const MINOR_SCALES: Record<string, string[]> = {
   B:   ['B',  'C#', 'D',  'E',  'F#', 'G',  'A' ],
 }
 
-export const SCALE_DEGREES = ['1', '2', '3', '4', '5', '6', '7'] as const
+export const SCALE_DEGREES = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'] as const
