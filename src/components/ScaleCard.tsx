@@ -1,6 +1,6 @@
 import { MAJOR_SCALES, MINOR_SCALES, SCALE_DEGREES } from '../data/scales'
 
-export default function ScaleCard({ note }: { note: string }) {
+export default function ScaleCard({ note, label }: { note: string; label?: string }) {
   const major = MAJOR_SCALES[note]
   const minor = MINOR_SCALES[note]
   if (!major && !minor) return null
@@ -8,7 +8,7 @@ export default function ScaleCard({ note }: { note: string }) {
   return (
     <div className="bg-gray-800 rounded-xl px-5 py-4 mb-8">
       <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
-        {note} Scales
+        {label ?? note} Scales
       </h2>
       <div className="space-y-3">
         {major && (

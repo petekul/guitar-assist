@@ -34,3 +34,13 @@ export const MINOR_SCALES: Record<string, string[]> = {
 }
 
 export const SCALE_DEGREES = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'] as const
+
+// For each natural note that has a sharp neighbour, maps to its display label and
+// the data key used in MAJOR_SCALES / MINOR_SCALES (flat spelling where conventional).
+export const SHARP_VARIANTS: Record<string, { label: string; dataKey: string }> = {
+  C: { label: 'C#', dataKey: 'C#' },
+  D: { label: 'D#', dataKey: 'Eb' },
+  F: { label: 'F#', dataKey: 'F#' },
+  G: { label: 'G#', dataKey: 'Ab' },
+  A: { label: 'A#', dataKey: 'Bb' },
+}

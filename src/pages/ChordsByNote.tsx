@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   DndContext,
   DragOverlay,
@@ -20,6 +20,7 @@ import {
   chordName,
   type ChordEntry,
 } from '../data/chords'
+import { SHARP_VARIANTS } from '../data/scales'
 import {
   useSelectedChords,
   type SelectedChord,
@@ -228,6 +229,13 @@ export default function ChordsByNote() {
   const { selected, addChord, reorder } = useSelectedChords()
   const [activeDrag, setActiveDrag] = useState<ActiveDrag | null>(null)
 
+  const sharpVariant = SHARP_VARIANTS[upper]
+  const [useVariant, setUseVariant] = useState(false)
+  useEffect(() => { setUseVariant(false) }, [upper])
+
+  const scaleKey   = useVariant && sharpVariant ? sharpVariant.dataKey : upper
+  const scaleLabel = useVariant && sharpVariant ? sharpVariant.label   : upper
+
   if (!NOTE_KEYS.includes(upper as (typeof NOTE_KEYS)[number])) {
     return (
       <div className="p-10 text-white">
@@ -306,9 +314,30 @@ export default function ChordsByNote() {
           ))}
         </div>
 
-        <ScaleCard note={upper} />
+        {sharpVariant && (
+          <div className="flex gap-1 mb-4">
+            <button
+              onClick={() => setUseVariant(false)}
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                !useVariant ? 'bg-amber-500 text-gray-900' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+              }`}
+            >
+              {upper}
+            </button>
+            <button
+              onClick={() => setUseVariant(true)}
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                useVariant ? 'bg-amber-500 text-gray-900' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+              }`}
+            >
+              {sharpVariant.label}
+            </button>
+          </div>
+        )}
 
-        <ProgressionBrowser note={upper} />
+        <ScaleCard note={scaleKey} label={scaleLabel} />
+
+        <ProgressionBrowser note={scaleKey} />
 
         <SelectedSection draggingLibItem={activeDrag?.type === 'library-chord'} />
 
