@@ -6,6 +6,7 @@ import TabInput from './pages/TabInput'
 import Visualiser from './pages/Visualiser'
 import FretboardVisualiser from './pages/FretboardVisualiser'
 import TabLibrary from './pages/TabLibrary'
+import ScaleBrowser from './pages/ScaleBrowser'
 import { SelectedChordsProvider } from './context/SelectedChordsContext'
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/visualiser" element={<Visualiser />} />
         <Route path="/fretboard" element={<FretboardVisualiser />} />
         <Route path="/library" element={<TabLibrary />} />
+        <Route path="/scales" element={<ScaleBrowser />} />
       </Routes>
     </HashRouter>
     </SelectedChordsProvider>

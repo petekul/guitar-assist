@@ -8,6 +8,7 @@ export default function NavBar() {
     { to: '/tab', label: 'Tab Input' },
     { to: '/library', label: 'My Tabs' },
     { to: '/chords', label: 'Chord Library' },
+    { to: '/scales', label: 'Scales' },
   ]
 
   return (

@@ -12,6 +12,7 @@ import {
 import { SortableContext, useSortable, rectSortingStrategy } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import ChordDiagram from '../components/ChordDiagram'
+import ScaleCard from '../components/ScaleCard'
 import {
   NOTE_KEYS,
   getChordsForNote,
@@ -303,6 +304,8 @@ export default function ChordsByNote() {
             </Link>
           ))}
         </div>
+
+        <ScaleCard note={upper} />
 
         <SelectedSection draggingLibItem={activeDrag?.type === 'library-chord'} />
 
