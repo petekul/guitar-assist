@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { SCALE_ROOTS, MAJOR_SCALES, MINOR_SCALES, SCALE_DEGREES } from '../data/scales'
+import ProgressionBrowser from '../components/ProgressionBrowser'
 
 export default function ScaleBrowser() {
   const [mode, setMode] = useState<'major' | 'minor'>('major')
+  const [selectedRoot, setSelectedRoot] = useState<string>('C')
   const scales = mode === 'major' ? MAJOR_SCALES : MINOR_SCALES
   const isMajor = mode === 'major'
 
@@ -54,9 +56,10 @@ export default function ScaleBrowser() {
             {SCALE_ROOTS.map((root, idx) => (
               <tr
                 key={root}
-                className={`border-t transition-colors hover:bg-gray-900/60 ${
+                onClick={() => setSelectedRoot(root)}
+                className={`border-t cursor-pointer transition-colors hover:bg-gray-900/60 ${
                   idx % 2 === 0 ? 'border-gray-800' : 'border-gray-800/60'
-                }`}
+                } ${root === selectedRoot ? 'bg-gray-800/80' : ''}`}
               >
                 <td className={`py-3 pr-6 font-bold text-base ${isMajor ? 'text-green-400' : 'text-blue-400'}`}>
                   {root}
@@ -77,9 +80,12 @@ export default function ScaleBrowser() {
         </table>
       </div>
 
-      <p className="mt-8 text-xs text-gray-600">
+      <p className="mt-6 mb-8 text-xs text-gray-600">
         Pattern — Major: W W H W W W H &nbsp;·&nbsp; Minor: W H W W H W W
       </p>
+
+      <h2 className="text-xl font-bold mb-4">{selectedRoot} Progressions</h2>
+      <ProgressionBrowser note={selectedRoot} />
     </div>
   )
 }
