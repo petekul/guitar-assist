@@ -315,7 +315,7 @@ export default function ChordsByNote() {
         </div>
 
         {/* Two-column middle section */}
-        <div className="flex flex-col lg:flex-row gap-6 mb-8">
+        <div className="flex flex-col lg:flex-row lg:items-start gap-6 mb-8">
 
           {/* Left — Selected Chords */}
           <div className="flex-1 min-w-0">
