@@ -39,53 +39,61 @@ export default function ScaleBrowser() {
         </button>
       </div>
 
-      {/* Scale table */}
-      <div className="overflow-x-auto">
-        <table className="text-sm border-collapse">
-          <thead>
-            <tr>
-              <th className="text-left pb-3 pr-6 text-gray-500 font-medium w-14">Key</th>
-              {SCALE_DEGREES.map(d => (
-                <th key={d} className="pb-3 px-4 text-gray-500 font-medium text-center w-14">
-                  {d}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {SCALE_ROOTS.map((root, idx) => (
-              <tr
-                key={root}
-                onClick={() => setSelectedRoot(root)}
-                className={`border-t cursor-pointer transition-colors hover:bg-gray-900/60 ${
-                  idx % 2 === 0 ? 'border-gray-800' : 'border-gray-800/60'
-                } ${root === selectedRoot ? 'bg-gray-800/80' : ''}`}
-              >
-                <td className={`py-3 pr-6 font-bold text-base ${isMajor ? 'text-green-400' : 'text-blue-400'}`}>
-                  {root}
-                </td>
-                {scales[root].map((note, i) => (
-                  <td
-                    key={i}
-                    className={`py-3 px-4 text-center font-semibold ${
-                      i === 0 ? 'text-amber-300' : 'text-white'
-                    }`}
+      <div className="flex flex-col lg:flex-row lg:items-start gap-8">
+
+        {/* Left — Scale table */}
+        <div className="flex-1 min-w-0">
+          <div className="overflow-x-auto">
+            <table className="text-sm border-collapse">
+              <thead>
+                <tr>
+                  <th className="text-left pb-3 pr-6 text-gray-500 font-medium w-14">Key</th>
+                  {SCALE_DEGREES.map(d => (
+                    <th key={d} className="pb-3 px-4 text-gray-500 font-medium text-center w-14">
+                      {d}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {SCALE_ROOTS.map((root, idx) => (
+                  <tr
+                    key={root}
+                    onClick={() => setSelectedRoot(root)}
+                    className={`border-t cursor-pointer transition-colors hover:bg-gray-900/60 ${
+                      idx % 2 === 0 ? 'border-gray-800' : 'border-gray-800/60'
+                    } ${root === selectedRoot ? 'bg-gray-800/80' : ''}`}
                   >
-                    {note}
-                  </td>
+                    <td className={`py-3 pr-6 font-bold text-base ${isMajor ? 'text-green-400' : 'text-blue-400'}`}>
+                      {root}
+                    </td>
+                    {scales[root].map((note, i) => (
+                      <td
+                        key={i}
+                        className={`py-3 px-4 text-center font-semibold ${
+                          i === 0 ? 'text-amber-300' : 'text-white'
+                        }`}
+                      >
+                        {note}
+                      </td>
+                    ))}
+                  </tr>
                 ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="mt-6 text-xs text-gray-600">
+            Pattern — Major: W W H W W W H &nbsp;·&nbsp; Minor: W H W W H W W
+          </p>
+        </div>
+
+        {/* Right — Progressions for selected key */}
+        <div className="lg:w-[440px] shrink-0">
+          <h2 className="text-xl font-bold mb-4">{selectedRoot} Progressions</h2>
+          <ProgressionBrowser note={selectedRoot} />
+        </div>
       </div>
-
-      <p className="mt-6 mb-8 text-xs text-gray-600">
-        Pattern — Major: W W H W W W H &nbsp;·&nbsp; Minor: W H W W H W W
-      </p>
-
-      <h2 className="text-xl font-bold mb-4">{selectedRoot} Progressions</h2>
-      <ProgressionBrowser note={selectedRoot} />
     </div>
   )
 }
