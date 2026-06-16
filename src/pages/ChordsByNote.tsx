@@ -323,7 +323,7 @@ export default function ChordsByNote() {
           </div>
 
           {/* Right — Scales + Progressions */}
-          <div className="lg:w-[440px] shrink-0">
+          <div className="lg:w-[440px] shrink-0 lg:max-h-[300px] lg:overflow-y-auto lg:pr-1">
             {sharpVariant && (
               <div className="flex gap-1 mb-4">
                 <button
