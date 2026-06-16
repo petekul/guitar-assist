@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* monospace tab display */
+.tab-display {
+  font-family: ui-monospace, Consolas, 'Courier New', monospace;
+  white-space: pre;
+  line-height: 1.6;
+}
