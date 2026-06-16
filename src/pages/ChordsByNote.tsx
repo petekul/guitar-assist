@@ -127,6 +127,16 @@ function SelectedSection({ draggingLibItem }: { draggingLibItem: boolean }) {
 }
 
 // ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+function voicingLabel(position: { baseFret: number; barres: number[] }): string {
+  if (position.barres.length > 0) return `barre fr. ${position.baseFret}`
+  if (position.baseFret === 1) return 'open'
+  return `fr. ${position.baseFret}`
+}
+
+// ---------------------------------------------------------------------------
 // Library — expanded voicing card (individually draggable)
 // ---------------------------------------------------------------------------
 
@@ -152,7 +162,7 @@ function DraggableVoicingCard({
       >
         <ChordDiagram
           position={entry.positions[posIndex]}
-          label={`${chordName(note, entry.suffix)} v${posIndex + 1}`}
+          label={`${chordName(note, entry.suffix)} (${voicingLabel(entry.positions[posIndex])})`}
           size={1}
         />
       </div>
