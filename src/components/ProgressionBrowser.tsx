@@ -18,7 +18,7 @@ function ProgressionCard({ progression, scaleNotes }: { progression: Progression
       <div className="flex gap-4">
         {progression.numerals.map((numeral, i) => (
           <div key={i} className="flex flex-col items-center min-w-[2.5rem]">
-            <span className="text-xs text-gray-500 mb-0.5">{numeral}</span>
+            <span className="text-xs text-gray-500 mb-0.5">{numeral.toUpperCase()}</span>
             <span className="text-sm font-bold text-white">{chordNames[i]}</span>
           </div>
         ))}
