@@ -1,7 +1,6 @@
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Home from './pages/Home'
-import ChordLibrary from './pages/ChordLibrary'
 import ChordsByNote from './pages/ChordsByNote'
 import TabInput from './pages/TabInput'
 import Visualiser from './pages/Visualiser'
