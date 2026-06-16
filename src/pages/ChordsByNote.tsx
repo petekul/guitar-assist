@@ -85,7 +85,7 @@ function SelectedSection({ draggingLibItem }: { draggingLibItem: boolean }) {
   const highlight = draggingLibItem || isOver
 
   return (
-    <div className="mb-8">
+    <div className="flex flex-col h-full">
       <div className="flex items-center gap-4 mb-3">
         <h2 className="text-xl font-bold">Selected Chords</h2>
         {selected.length > 0 && (
@@ -314,33 +314,42 @@ export default function ChordsByNote() {
           ))}
         </div>
 
-        {sharpVariant && (
-          <div className="flex gap-1 mb-4">
-            <button
-              onClick={() => setUseVariant(false)}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                !useVariant ? 'bg-amber-500 text-gray-900' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-              }`}
-            >
-              {upper}
-            </button>
-            <button
-              onClick={() => setUseVariant(true)}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                useVariant ? 'bg-amber-500 text-gray-900' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-              }`}
-            >
-              {sharpVariant.label}
-            </button>
+        {/* Two-column middle section */}
+        <div className="flex flex-col lg:flex-row gap-6 mb-8">
+
+          {/* Left — Selected Chords */}
+          <div className="flex-1 min-w-0">
+            <SelectedSection draggingLibItem={activeDrag?.type === 'library-chord'} />
           </div>
-        )}
 
-        <ScaleCard note={scaleKey} label={scaleLabel} />
+          {/* Right — Scales + Progressions */}
+          <div className="lg:w-[440px] shrink-0">
+            {sharpVariant && (
+              <div className="flex gap-1 mb-4">
+                <button
+                  onClick={() => setUseVariant(false)}
+                  className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                    !useVariant ? 'bg-amber-500 text-gray-900' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                  }`}
+                >
+                  {upper}
+                </button>
+                <button
+                  onClick={() => setUseVariant(true)}
+                  className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                    useVariant ? 'bg-amber-500 text-gray-900' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                  }`}
+                >
+                  {sharpVariant.label}
+                </button>
+              </div>
+            )}
+            <ScaleCard note={scaleKey} label={scaleLabel} />
+            <ProgressionBrowser note={scaleKey} />
+          </div>
+        </div>
 
-        <ProgressionBrowser note={scaleKey} />
-
-        <SelectedSection draggingLibItem={activeDrag?.type === 'library-chord'} />
-
+        {/* Full-width chord library */}
         <div className="flex flex-wrap gap-4 items-start">
           {chords.map(entry => (
             <ChordCard key={entry.suffix} entry={entry} note={upper} />
