@@ -44,3 +44,20 @@ export const SHARP_VARIANTS: Record<string, { label: string; dataKey: string }> 
   G: { label: 'G#', dataKey: 'Ab' },
   A: { label: 'A#', dataKey: 'Bb' },
 }
+
+// Fixed colour per chromatic note name — every occurrence of a note (any string,
+// any fret, any octave) always renders in the same colour across the fretboard.
+export const NOTE_COLORS: Record<string, string> = {
+  C:  '#ef4444',
+  'C#': '#f97316',
+  D:  '#f59e0b',
+  Eb: '#eab308',
+  E:  '#22c55e',
+  F:  '#10b981',
+  'F#': '#06b6d4',
+  G:  '#3b82f6',
+  Ab: '#6366f1',
+  A:  '#8b5cf6',
+  Bb: '#d946ef',
+  B:  '#ec4899',
+}
